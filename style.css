@@ -1,0 +1,72 @@
+:root{
+    --primary: #1D1D1F;
+    --secondary: #858786;
+    --erro: #FF5757;
+    text-align: center;
+    align-items: center;
+    align-self: center;
+    font-family: SF Pro Display,SF Pro Icons,AOS Icons,Helvetica Neue,Helvetica,Arial,sans-serif;
+  }
+
+  .main-container{
+    width: 70%;
+    height: 70%;
+   background-image: image('images/AngelaMerkel.jpg');
+  }
+
+  .main-container img{
+    width: 100%;
+    height: 100%;
+    object-position: center;
+    object-fit:cover;
+  }
+
+  .center-cropped img {
+    border-radius: 5px;
+    width: 50%;
+    height: 50%;
+    object-position: center;
+    object-fit:cover;
+  }
+
+  .option-container{
+    display: flex;
+    justify-content: space-around; 
+    margin: 10px;
+    padding: 5px;
+    width: 80vw;
+    height: 20vh;
+    background-color: #9eb1b3;   
+        
+}
+.option{    
+    padding: 10px;
+    width: 15vw;
+    height: 10vh;
+    font-size: larger;
+    background-color: lightskyblue;
+    border-radius: 25%;
+}
+.option:hover{
+    background-color: lightgoldenrodyellow;
+}
+
+  .title h1 {
+    font-size: 4rem;
+    font-weight: 400;
+    padding: 10px;
+    color: #1d1d1d;
+  }
+  
+  .title h2{
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #1D1D1D;
+  }
+  
+  h2{
+    font-size: 3rem;
+    font-weight: 300;
+    color: #1D1D1D;
+  }
+  
