@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <header>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="./style.css"/>
+        <title>Get Started</title>
+        <audio id="mySound" src="music/game-over.mp3" autoplay="true"></audio>
+    </header>
+
+
+    <body>
+
+     
+
+        <div class="wrapper">
+          
+
+            <div class="title">
+                <h1 id="totalScore"></h1>
+
+                <script>
+                    const score = localStorage.getItem("score");
+
+                    if(score.match("9")){
+                        document.getElementById("totalScore").innerHTML = "You got a perfect score of "+ score+" pts";
+
+                    }else{
+                      
+                      document.getElementById('mySound').play();    
+                        
+                         document.getElementById("totalScore").innerHTML = score;
+                    }
+                   
+
+                </script>
+            </div>
+           
+        </div>
+        
+
+        <script type="text/javascript" src="script.js"></script>
+      
+    </body>
+
+</html>

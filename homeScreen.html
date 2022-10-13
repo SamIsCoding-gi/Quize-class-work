@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <header>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="./style.css"/>
+        <title>Quiz It To ME</title>
+    </header>
+
+    <body>
+
+        <div class="questionsWrapperScreen">
+                    <div class="header">
+                        <div class="title">
+                            <h2 id="textarea" hidden></h2>
+                            <script>
+                                document.getElementById("textarea").innerHTML = localStorage.getItem("username");
+                            </script>
+                        </div>
+
+                    </div>
+
+
+                        <div class="main-container">
+                            <div class="column">
+                                <div class="quiz-image" id="image"></div>
+                            </div>
+
+                            <div class="column">
+                            <div class="option-container">
+                                    <div id="optionList" class="option-container"></div>
+                                </div>
+                        </div>
+                    
+
+        </div>
+        
+
+        <script type="text/javascript" src="script.js"></script>
+        
+    </body>
+
+</html>

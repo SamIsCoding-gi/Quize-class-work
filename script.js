@@ -1,140 +1,229 @@
-// Questions will be asked
-const Questions = [{
-    id: 0,
-    i:"",
-    a: [{ text: "gandhinagar", isCorrect: false },
-        { text: "Surat", isCorrect: false },
-        { text: "Delhi", isCorrect: true },
-        { text: "mumbai", isCorrect: false }
-    ]
+// Questions will be asked//
+const questions = [
+    { id: 0, i: 'images/trump.jpg',
+     a: [{ text: "George Washington", isCorrect: false },{ text: "John Adams", isCorrect: false },
+        { text: "James Madison", isCorrect: false }, { text: "Donald John Trump", isCorrect: true } ] }, 
 
-},
-{
-    id: 1,
-    i:"",
-    a: [{ text: "Lampang", isCorrect: false, isSelected: false },
-        { text: "phuket", isCorrect: false },
-        { text: "Ayutthaya", isCorrect: false },
-        { text: "Bangkok", isCorrect: true }
-    ]
+        { id: 1, i: 'images/kim.jpg',
+        a: [{ text: "George Washington", isCorrect: false },{ text: "John Adams", isCorrect: false },
+           { text: "James Madison", isCorrect: false }, { text: "Donald John Trump", isCorrect: true } ] }, 
 
-},
-{
-    id: 2,
-    i:"",
-    a: [{ text: "surat", isCorrect: false },
-        { text: "vadodara", isCorrect: false },
-        { text: "gandhinagar", isCorrect: true },
-        { text: "rajkot", isCorrect: false }
-    ]
+   
+           { id: 2, i: 'images/joe.jpg',
+           a: [{ text: "George Washington", isCorrect: false },{ text: "John Adams", isCorrect: false },
+              { text: "James Madison", isCorrect: false }, { text: "Donald John Trump", isCorrect: true } ] }, 
 
-}
+              { id: 3, i: 'images/putin.jpg',
+              a: [{ text: "George Washington", isCorrect: false },{ text: "John Adams", isCorrect: false },
+                 { text: "James Madison", isCorrect: false }, { text: "Donald John Trump", isCorrect: true } ] }, 
 
-]
+                 { id: 4, i: 'images/Recep.jpg',
+                 a: [{ text: "George Washington", isCorrect: false },{ text: "John Adams", isCorrect: false },
+                    { text: "James Madison", isCorrect: false }, { text: "Donald John Trump", isCorrect: true } ] }, 
 
-// Set start
-var start = true;
+                    { id: 5, i: 'images/Trudeau.jpg',
+                    a: [{ text: "George Washington", isCorrect: false },{ text: "John Adams", isCorrect: false },
+                       { text: "James Madison", isCorrect: false }, { text: "Donald John Trump", isCorrect: true } ] }, 
 
-// Iterate
-function iterate(id) {
+                       { id: 6, i: 'images/mahmoud.jpg',
+                       a: [{ text: "George Washington", isCorrect: false },{ text: "John Adams", isCorrect: false },
+                          { text: "James Madison", isCorrect: false }, { text: "Donald John Trump", isCorrect: true } ] }, 
 
-// Getting the result display section
-var result = document.getElementsByClassName("result");
-result[0].innerText = "";
+                          { id: 7, i: 'images/borisJohnson.jpg',
+                          a: [{ text: "George Washington", isCorrect: false },{ text: "John Adams", isCorrect: false },
+                             { text: "James Madison", isCorrect: false }, { text: "Donald John Trump", isCorrect: true } ] }, 
 
-// Getting the question
-const question = document.getElementById("question");
+                             { id: 8, i: 'images/AngelaMerkel.jpg',
+                             a: [{ text: "George Washington", isCorrect: false },{ text: "John Adams", isCorrect: false },
+                                { text: "James Madison", isCorrect: false }, { text: "Donald John Trump", isCorrect: true } ] }, 
 
 
-// Setting the question text
-question.innerText = Questions[id].q;
+  ];
+  
+  // Set start//
+  const game = {
+    active: true,
+    currentQuestion: 0,
+    selectedAnswer: null,
+    evaluated: false,
+    score: 0
+  };
 
-// Getting the options
-const op1 = document.getElementById('op1');
-const op2 = document.getElementById('op2');
-const op3 = document.getElementById('op3');
-const op4 = document.getElementById('op4');
+  var wrapperScreen = document.querySelector('.wrapper');
+  var questionsWrapperScreen = document.querySelector('.questionsWrapperScreen');
 
+  
+  
+  function updateAnswerStatus() {
+    const hasNext = game.currentQuestion < questions.length - 1;
+    
+    
+    //$('#btnEvaluate').attr('disabled', game.evaluated || !game.selectedAnswer);
+    $('#btnNext').attr('disabled', !game.selectedAnswer || !hasNext);
+    
 
-// Providing option text
-op1.innerText = Questions[id].a[0].text;
-op2.innerText = Questions[id].a[1].text;
-op3.innerText = Questions[id].a[2].text;
-op4.innerText = Questions[id].a[3].text;
+    if(!hasNext && game.selectedAnswer){
+      
+        setTimeout(()=>{
+          questionsWrapperScreen.classList.add('hidden')
+          location.href = 'result.html';
+        },610);
+       
 
-// Providing the true or false value to the options
-op1.value = Questions[id].a[0].isCorrect;
-op2.value = Questions[id].a[1].isCorrect;
-op3.value = Questions[id].a[2].isCorrect;
-op4.value = Questions[id].a[3].isCorrect;
-
-var selected = "";
-
-// Show selection for op1
-op1.addEventListener("click", () => {
-    op1.style.backgroundColor = "lightgoldenrodyellow";
-    op2.style.backgroundColor = "lightskyblue";
-    op3.style.backgroundColor = "lightskyblue";
-    op4.style.backgroundColor = "lightskyblue";
-    selected = op1.value;
-})
-
-// Show selection for op2
-op2.addEventListener("click", () => {
-    op1.style.backgroundColor = "lightskyblue";
-    op2.style.backgroundColor = "lightgoldenrodyellow";
-    op3.style.backgroundColor = "lightskyblue";
-    op4.style.backgroundColor = "lightskyblue";
-    selected = op2.value;
-})
-
-// Show selection for op3
-op3.addEventListener("click", () => {
-    op1.style.backgroundColor = "lightskyblue";
-    op2.style.backgroundColor = "lightskyblue";
-    op3.style.backgroundColor = "lightgoldenrodyellow";
-    op4.style.backgroundColor = "lightskyblue";
-    selected = op3.value;
-})
-
-// Show selection for op4
-op4.addEventListener("click", () => {
-    op1.style.backgroundColor = "lightskyblue";
-    op2.style.backgroundColor = "lightskyblue";
-    op3.style.backgroundColor = "lightskyblue";
-    op4.style.backgroundColor = "lightgoldenrodyellow";
-    selected = op4.value;
-})
-
-// Grabbing the evaluate button
-const evaluate = document.getElementsByClassName("evaluate");
-
-// Evaluate method
-evaluate[0].addEventListener("click", () => {
-    if (selected == "true") {
-        result[0].innerHTML = "True";
-        result[0].style.color = "green";
+    }else if(hasNext && game.selectedAnswer){
+        $('#btnNext').text("Next Question");
+        game.currentQuestion = game.currentQuestion + 1;
+        renderCurrentQuestion();
     } else {
-        result[0].innerHTML = "False";
-        result[0].style.color = "red";
+        $('#btnNext').text("...");
     }
-})
-}
+  }
+  
+  function selectAnswer(selectedAnswer) {
+    if (!game.evaluated) {
+      game.selectedAnswer = selectedAnswer;
+    
+      $('#optionList .option').each(function () {
+        const option = $(this);
+        const answer = option.data('answer');
+      
+        if (answer === selectedAnswer) {
+          option.addClass('selected');
+          evaluateAnswer();
+        } else {
+          option.removeClass('selected');
+        }
+      });
+  
+      updateAnswerStatus()
+    }
+  }
+  
+  function evaluateAnswer() {
+    if (!game.evaluated && game.selectedAnswer) {
+      game.evaluated = true;
+      
+      $('#optionList .option').each(function () {
+        const option = $(this);
+        const answer = option.data('answer');
+  
+        if (answer === game.selectedAnswer) {
+          option.addClass( answer.isCorrect ? 'correct' :  'incorrect');
+          game.score = game.score + (answer.isCorrect ? 1 : 0);
+          localStorage.setItem("score", game.score);
+        }
+      });
+      
+      updateAnswerStatus();
+    }
+  }
+  
+  function createOption(answer) {
+    return $('<button>')
+      .data({ answer })
+      .text(answer.text)
+      .addClass('option')
+      .on('click', function() {
+        selectAnswer(answer);
+      })
+    ;
+  }
+  
+  function renderCurrentQuestion() {
+    const question = questions[game.currentQuestion];
+      
+    if (question) {
+      const optList = $('#optionList').empty();
+      const image = $('#image').empty();
+  
+      game.selectedAnswer = null;
+      game.evaluated = false;
+  
+      image.append($('<img>').attr('src', question.i));
+      
+      for (const answer of question.a) {
+        optList.append( createOption(answer) );
+      }
+    }  
+         
+    updateAnswerStatus();
+  };
+  
+  // next question?
+  // $('#btnNext').on('click', function() {
+  //   game.currentQuestion = game.currentQuestion + 1;
+  //   renderCurrentQuestion();
+  // }).attr('disabled', true);
+  
+//   $('#btnEvaluate').on('click', function() {
+//     evaluateAnswer();
+//   });
+  
+  if (game.active) {
+    renderCurrentQuestion();
+  }
 
-if (start) {
-iterate("0");
-}
 
-// Next button and method
-const next = document.getElementsByClassName('next')[0];
-var id = 0;
+  // SPLASH SCREEN CODE
 
-next.addEventListener("click", () => {
-start = false;
-if (id < 2) {
-    id++;
-    iterate(id);
-    console.log(id);
-}
+  var audio = new Audio('music/click.mp3')
+  var audio2 = new Audio('music/clickUp.mp3')
 
-})
+    var splashScreen = document.querySelector('.splash');
+  $('#btnContinue').on('click', function() {
+    splashScreen.style.opacity = 0;
+    audio2.load();
+    audio2.play();
+    setTimeout(()=>{
+          splashScreen.classList.add('hidden')
+        location.href = 'getUsername.html';
+    },610)
+  });
+
+  $(".btnContinue").mousedown(function() {
+    audio2.load();
+    audio2.play();
+  });
+	
+  $(".btnContinue").mouseup(function() {
+    audio.load();
+    audio.play();
+  });
+
+  $('#btnHowTo').on('click', function() {
+    splashScreen.style.opacity = 0;
+    audio2.load();
+    audio2.play();
+    setTimeout(()=>{
+          splashScreen.classList.add('hidden')
+        location.href = 'howToPlay.html';
+    },610)
+  });
+
+  $(".btnHowTo").mousedown(function() {
+    audio2.load();
+    audio2.play();
+  });
+	
+  $(".btnHowTo").mouseup(function() {
+    audio.load();
+    audio.play();
+  });
+    
+
+  // Get Users Name
+  $('#btnContinueUserName').on('click', function() {
+    wrapperScreen.style.opacity = 0;
+    audio2.load();
+    audio2.play();
+
+   const mUserName  = document.getElementById('usernameInput').value;
+   localStorage.setItem("username", mUserName);
+
+   console.log(localStorage.getItem("username"));
+
+    setTimeout(()=>{
+        wrapperScreen.classList.add('hidden')
+        location.href = 'homeScreen.html';
+    },610)
+  });
