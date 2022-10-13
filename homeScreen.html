@@ -13,26 +13,26 @@
     <body>
 
         <div class="questionsWrapperScreen">
-                    <div class="header">
-                        <div class="title">
-                            <h2 id="textarea" hidden></h2>
-                            <script>
-                                document.getElementById("textarea").innerHTML = localStorage.getItem("username");
-                            </script>
-                        </div>
-
-                    </div>
-
-
                         <div class="main-container">
                             <div class="column">
                                 <div class="quiz-image" id="image"></div>
                             </div>
 
                             <div class="column">
-                            <div class="option-container">
-                                    <div id="optionList" class="option-container"></div>
+                                <h1>Pick the right name</h1>
+                                <div class="option-container">
+                                        <div id="optionList" class="option-container"></div>
                                 </div>
+                            </div>
+
+                            <div class="column">
+                                <img class="userImage" src="images/user-profile-picture.jpg"/>
+                                <h1 id="username">Hey</h1>
+                                <script>
+                                    document.getElementById("username").innerHTML = localStorage.getItem("username");
+                                </script>
+                                 
+                            </div>
                         </div>
                     
 

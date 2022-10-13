@@ -227,3 +227,13 @@ const questions = [
         location.href = 'homeScreen.html';
     },610)
   });
+
+  ///////Results Page
+  $('#btnCredits').on('click', function() {
+    wrapperScreen.style.opacity = 0;
+  
+    setTimeout(()=>{
+        wrapperScreen.classList.add('hidden')
+        location.href = 'credits.html';
+    },610)
+  });

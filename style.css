@@ -9,13 +9,15 @@
   }
 
   .column {
+    border-style: solid;
     justify-items: center;
     justify-content: center;
     float: left;
-    width: 50%;
+    width: 100%;
     height: 100vh;
     justify-content: center;
   }
+
 
   .column img{
     width: 100%;
@@ -29,12 +31,13 @@
     position: fixed;
     width: 100%;
     overflow: hidden;
-    display: block;
+    display: grid;
+    grid-template-columns: 33.3333333% 33.3333333% 33.333333%;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: #1c1c1c;
+   
   }
 
   /* Clear floats after the columns */
@@ -53,14 +56,17 @@
   }
 
   .option-container{
-    margin-top: 50%;
-    margin-bottom: 50%;
     grid-column: 1;
-    margin: 10px;
-    padding: 5px;
+    margin-top: 40%;
     width: 100%;
-    height: auto;
-        
+    height: 100%;        
+}
+
+.column h1{
+  font-family: 'uncracked';
+  font-size: 3rem;
+  font-weight: 400;
+  color: #1d1d1d;
 }
 
 
@@ -68,6 +74,13 @@
     position: absolute;
     bottom: 8px;
     left: 16px;
+  }
+
+  .column .userImage{
+    margin-top: 60px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
   }
 
 .option{    
@@ -84,7 +97,8 @@
 }
 
 .option:hover{
-    background-color: #e1e8ed;
+    background-color: #177244;
+    color: white;
 }
 
   .title h1 {
@@ -160,7 +174,6 @@
   height: auto;
   margin: 0px;
   padding-top: 10px;
-  cursor: pointer;
   transition: all ease-in-out 600ms;
   margin-bottom: 100px;
 }
@@ -175,6 +188,24 @@
   font-size: 3rem;
   font-family: 'uncracked';
   color: #1D1D1D;
+}
+
+.btnCredits{
+  cursor: pointer;
+  color: #F5F8FA;
+  margin: 20px;
+  font-size: 1.5rem;
+  border-radius: 40px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  font-weight: bold;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 100px;
+  padding-right: 100px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  background-color: #1c1c1c;
+  transition: #1c1c1c 0.05s linear;
+  transition: all .05s linear;
 }
 
 .username-title {
@@ -246,75 +277,5 @@
   transform: translateY(3px);
 }
 
-/* Progress Css*/
-
-.circular{
-  height:120px;
-  width: 120px;
-  position: relative;
-  transform:scale(2);
-}
-.circular .inner{
-  position: absolute;
-  z-index: 6;
-  top: 50%;
-  left: 50%;
-  height: 80px;
-  width: 80px;
-  margin: -40px 0 0 -40px;
-  background: #dde6f0;
-  border-radius: 100%;
- 
-}
-.circular .number{
-  position: absolute;
-  top:50%;
-  left:50%;
-  transform: translate(-50%, -50%);
-  z-index:10;
-  font-size:18px;
-  font-weight:500;
-  color:#4158d0;
-}
-
-.circular .bar{
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  background: #fff;
-  -webkit-border-radius: 100%;
-  clip: rect(0px, 120px, 120px, 60px);
-}
-.circle .bar .progress{
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  -webkit-border-radius: 100%;
-  clip: rect(0px, 60px, 120px, 0);
-  background: #FF6600;
-}
-.circle .left .progress{
-  z-index:1;
-  animation: left 4s linear both;
-}
-@keyframes left{
-  100%{
-    transform: rotate(180deg);
-  }
-}
-.circle .right {
-  transform: rotate(180deg);
-  z-index:3;
- 
-}
-.circle .right .progress{
-  animation: right 4s linear both;
-  animation-delay:4s;
-}
-@keyframes right{
-  100%{
-    transform: rotate(180deg);
-  }
-}
 
   

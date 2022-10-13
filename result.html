@@ -7,7 +7,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="./style.css"/>
-        <title>Get Started</title>
+        <title>Result</title>
         <audio id="mySound" src="music/game-over.mp3" autoplay="true"></audio>
     </header>
 
@@ -22,6 +22,8 @@
             <div class="title">
                 <h1 id="totalScore"></h1>
 
+               
+
                 <script>
                     const score = localStorage.getItem("score");
 
@@ -32,13 +34,14 @@
                       
                       document.getElementById('mySound').play();    
                         
-                         document.getElementById("totalScore").innerHTML = score;
+                      document.getElementById("totalScore").innerHTML = "GAME OVER<br/>"+"You got a score of "+ score+" pts";
                     }
                    
 
                 </script>
             </div>
-           
+
+            <button id="btnCredits" class="btnCredits">View Credits</button>
         </div>
         
 
